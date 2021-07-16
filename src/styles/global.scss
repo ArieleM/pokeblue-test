@@ -9,6 +9,8 @@
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-700: #323238;
+
+  --red-500: #ff5d5d;
 }
 @media(max-width: 1080px){
   html{
@@ -22,7 +24,8 @@
 }
 
 body{
-  background-color: var(--gray-300);
+  background-color: var(--red-500);
+  color: var(--gray-700);
 }
 
 body, input, textarea, select, button{
