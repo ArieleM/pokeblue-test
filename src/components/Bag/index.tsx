@@ -8,9 +8,14 @@ export function Bag({ name }: IBagProps) {
     <section className={styles.container}>
       <h2>{name}</h2>
       <input type="text" placeholder="Digite o nome do pokemon" />
-      <Card />
-      <Card />
-      <Card />
+      <div className={styles.bagCards}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </section>
   );
 }
