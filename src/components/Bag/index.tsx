@@ -1,5 +1,7 @@
 import styles from "./styles.module.scss";
 import { Card } from "../Card";
+import { useEffect } from "react";
+import { api } from "../../service/api";
 interface IBagProps {
   name: string;
 }
