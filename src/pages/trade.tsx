@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./trade.module.scss";
 import { Bag } from "../components/Bag";
-import { api } from "../service/api";
+import { pokeapi } from "../service/api";
 
 interface IAllPokemon {
   name: string;
@@ -12,7 +12,7 @@ interface IAllPokemon {
 export default function Trade() {
   const [allPokemon, setallPokemon] = useState<IAllPokemon[]>([]);
   useEffect(() => {
-    api.get("pokemon/?limit=1118").then((response) => {
+    pokeapi.get("pokemon/?limit=1118").then((response) => {
       setallPokemon(response.data.results);
     });
   }, []);
