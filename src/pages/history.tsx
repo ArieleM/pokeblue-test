@@ -37,8 +37,8 @@ export default function History({ allTrades }: HistoryProps) {
               }).format(Number(trade.ts) / 1000)}
             </p>
             <div style={{ display: "flex" }}>
-              {trade.data.bags?.map((bag) => (
-                <div style={{ border: "1px solid black" }}>
+              {trade.data.bags?.map((bag, index) => (
+                <div style={{ border: "1px solid black" }} key={index}>
                   <p>{bag.sum_experience}</p>
                   <div style={{ display: "flex" }}>
                     {bag.pokemon?.map((pokemon) => (
