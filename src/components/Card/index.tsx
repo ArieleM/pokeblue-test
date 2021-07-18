@@ -1,16 +1,19 @@
 import styles from "./styles.module.scss";
-export function Card() {
+interface PokemonProps {
+  pokemon: {
+    name: string;
+    base_experience: number;
+    image: string;
+  };
+}
+export function Card({ pokemon }: PokemonProps) {
   return (
     <div className={styles.container}>
-      <img src="/images/poke.svg" alt="" />
+      <p>{pokemon.name}</p>
       <div>
         <div>
-          <p>Nome</p>
-          <p>xp</p>
-        </div>
-        <div>
-          <p>tipo</p>
-          <p>tipo</p>
+          <img src={pokemon.image} alt="" />
+          <p>{pokemon.base_experience}</p>
         </div>
       </div>
     </div>
