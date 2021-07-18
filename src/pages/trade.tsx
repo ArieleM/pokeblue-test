@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./trade.module.scss";
 import { Bag } from "../components/Bag";
 import { pokeapi } from "../service/api";
+import { GetServerSideProps } from "next";
 
 interface IAllPokemon {
   name: string;
   url: string;
 }
 
-export default function Trade() {
-  const [allPokemon, setallPokemon] = useState<IAllPokemon[]>([]);
-  useEffect(() => {
-    pokeapi.get("pokemon/?limit=1118").then((response) => {
-      setallPokemon(response.data.results);
-    });
-  }, []);
+interface TradeProps {
+  allPokemon: IAllPokemon[];
+}
+export default function Trade({ allPokemon }: TradeProps) {
   return (
     <>
       <Head>
@@ -29,3 +26,14 @@ export default function Trade() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await pokeapi.get("pokemon/?limit=1118");
+  const allPokemon: IAllPokemon[] = await response.data.results;
+
+  return {
+    props: {
+      allPokemon,
+    },
+  };
+};

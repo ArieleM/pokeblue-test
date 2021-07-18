@@ -22,7 +22,7 @@ export default function Home() {
             uma troca é justa ou não, considerando uma margem de 7% (1% para
             cada geração) para que nenhum treinador saia perdendo!
           </p>
-          <Link href="/trade" prefetch>
+          <Link href="/trade">
             <a>Começar a trocar</a>
           </Link>
         </aside>
