@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "./home.module.scss";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,8 +22,9 @@ export default function Home() {
             uma troca é justa ou não, considerando uma margem de 7% (1% para
             cada geração) para que nenhum treinador saia perdendo!
           </p>
-
-          <button>Começar a trocar</button>
+          <Link href="/trade" prefetch>
+            <a>Começar a trocar</a>
+          </Link>
         </aside>
       </main>
     </>

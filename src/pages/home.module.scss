@@ -24,12 +24,11 @@
   p + p {
     margin-bottom: 2.5rem;
   }
-  button{
-
-    height: 3rem;
+  a{
     border: 0;
     border-radius: 1.5rem;
-    padding: 0 4rem;
+    padding: 1.25rem 4rem;
+    background-color: var(--white);
 
 
     transition: filter 0.2s;
