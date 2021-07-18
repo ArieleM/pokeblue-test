@@ -2,6 +2,7 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import axios from "axios";
 import Head from "next/head";
 import { api } from "../service/api";
+import { useEffect, useState } from "react";
 interface IBag {
   sum_experience: number;
   pokemon: [{ name: string; base_experience: number }];
@@ -19,7 +20,13 @@ interface HistoryProps {
   allTrades: ITrades[];
 }
 
-export default function History({ allTrades }: HistoryProps) {
+export default function History() {
+  const [trades, setTrades] = useState([]);
+  useEffect(() => {
+    api.get("history").then((response) => {
+      setTrades(response.data.data);
+    });
+  }, []);
   return (
     <>
       <Head>
@@ -27,7 +34,7 @@ export default function History({ allTrades }: HistoryProps) {
       </Head>
       <main>
         <h1>Histórico de trocas</h1>
-        {allTrades?.map((trade) => (
+        {trades?.map((trade) => (
           <div key={trade.ts}>
             <p>
               Realizada em:{" "}
@@ -58,12 +65,12 @@ export default function History({ allTrades }: HistoryProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/history");
-  const allTrades: ITrades[] = await response.data.data;
-  return {
-    props: {
-      allTrades,
-    },
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const response = await axios.get("http://localhost:3000/api/history");
+//   const allTrades: ITrades[] = await response.data.data;
+//   return {
+//     props: {
+//       allTrades,
+//     },
+//   };
+// };
