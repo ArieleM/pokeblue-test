@@ -8,7 +8,7 @@ interface PokemonProps {
 }
 export function Card({ pokemon }: PokemonProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={pokemon.name}>
       <p>{pokemon.name}</p>
       <div>
         <div>
