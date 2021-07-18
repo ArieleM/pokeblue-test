@@ -42,10 +42,10 @@ export default function History({ allTrades }: HistoryProps) {
                   <p>{bag.sum_experience}</p>
                   <div style={{ display: "flex" }}>
                     {bag.pokemon?.map((pokemon) => (
-                      <>
+                      <div key={pokemon.name}>
                         <li>{pokemon.base_experience}</li>
                         <li>{pokemon.name}</li>
-                      </>
+                      </div>
                     ))}
                   </div>
                 </div>
