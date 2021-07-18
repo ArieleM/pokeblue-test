@@ -91,7 +91,7 @@ export function Bag({ name, allPokemon }: IBagProps) {
       </div>
       <div className={styles.bagCards}>
         {trade?.pokemon.map((pokemon) => (
-          <Card pokemon={pokemon} />
+          <Card key={pokemon.name} pokemon={pokemon} />
         ))}
       </div>
     </section>
