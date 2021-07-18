@@ -59,7 +59,9 @@ export default function History({ allTrades }: HistoryProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await axios.get("/api/history-trade");
+  const response = await axios.get(
+    "https://pokeblue-test.herokuapp.com/api/history-trade"
+  );
   const allTrades: ITrades[] = await response.data.data;
   return {
     props: {
