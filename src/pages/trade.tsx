@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "./trade.module.scss";
 import { Bag } from "../components/Bag";
 import { pokeapi } from "../service/api";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 interface IAllPokemon {
   name: string;
@@ -27,7 +27,7 @@ export default function Trade({ allPokemon }: TradeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await pokeapi.get("pokemon/?limit=1118");
   const allPokemon: IAllPokemon[] = await response.data.results;
 
