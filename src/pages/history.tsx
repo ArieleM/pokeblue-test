@@ -61,7 +61,7 @@ export default function History({ allTrades }: HistoryProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await axios.get("http://localhost:3000/api/history-trade");
+  const response = await axios.get("history-trade");
   const allTrades: ITrades[] = await response.data.data;
   return {
     props: {
