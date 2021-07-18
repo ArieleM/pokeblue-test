@@ -20,8 +20,6 @@ interface HistoryProps {
 }
 
 export default function History({ allTrades }: HistoryProps) {
-  console.log("depois", allTrades);
-
   return (
     <>
       <Head>

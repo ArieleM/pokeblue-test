@@ -41,7 +41,6 @@ export function Bag({ name, allPokemon }: IBagProps) {
   const handleSelectedPokemon = async (selectedPokemon: any) => {
     if (trade.pokemon.length < 6) {
       const pokemon = await pokeapi.get(`${selectedPokemon.url}`);
-      console.log("pokemon", pokemon.data);
 
       const pok = {
         base_experience: pokemon.data.base_experience,
